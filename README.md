@@ -59,7 +59,7 @@ yarn run dev or npm run dev
 
 **Server:** Json-Server
 
-- All user data is managed using JSON Server. The data is stored in a data/db.json file, which serves as the backend database. This integration allows for a seamless separation of frontend and backend development.
+- All user data is managed using JSON Server. The data is stored in a data/db.json file, which serves as the backend database. This integration allows for a seamless separation of frontend and backend development.The setup is already done for this step.
 
 ## API Reference
 
