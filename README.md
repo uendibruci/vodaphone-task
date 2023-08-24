@@ -49,6 +49,12 @@ yarn run dev or npm run dev
  http://localhost:5173/
 ```
 
+## Way Of Work
+
+- Please create your git branch and create a pull request after finnishing the task.
+
+## Tech Stack
+
 **Client:** React, TypeScript
 
 **Server:** Json-Server
@@ -59,24 +65,24 @@ yarn run dev or npm run dev
 
 #### Get all users
 
-```http
+```
   GET http://localhost:8000/users
 ```
 
 #### Get single user
 
-```http
+```
   GET http://localhost:8000/users/${id}
 ```
 
 #### Edit user
 
-```http
+```
   POST http://localhost:8000/users/${id}
 ```
 
 #### Delete user
 
-```http
+```
   DELETE http://localhost:8000/users/${id}
 ```
