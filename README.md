@@ -17,7 +17,7 @@ Users of the system can perform CRUD operations on the user table:
 
 Follow these steps to get the project up and running on your local machine:
 
-- Clone the Repository: Start by cloning this repository to your local machine and install all dependencies:
+- Fork the Repository: Start by forking this repository to your local machine and install all dependencies:
 
 ```bash
  yarn or npm install / npm i
