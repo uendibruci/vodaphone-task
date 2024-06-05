@@ -10,7 +10,7 @@ const CreateUserButton: React.FC<ButtonProps> = ({
   setCreateUserModalOpen,
 }) => {
   return (
-    <div className="flex justify-end pb-5">
+
       <Button
         variant="contained"
         color="error"
@@ -20,7 +20,7 @@ const CreateUserButton: React.FC<ButtonProps> = ({
       >
         Create New User
       </Button>
-    </div>
+
   );
 };
 

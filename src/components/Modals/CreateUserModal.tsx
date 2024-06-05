@@ -15,9 +15,10 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { createUser } from "@/api/usersApi";
 import { CreateUserModalProps } from "@/interfaces";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
-  firstName: Yup.string(),
+  firstName: Yup.string().required("Username is required"),
   username: Yup.string().required("Username is required"),
   street: Yup.string().required("Street is required"),
   city: Yup.string().required("City is required"),
@@ -68,7 +69,7 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
       onClose();
       fetchUsers();
     } catch (error) {
-      console.error("Error creating user:", error);
+      toast.error("Error creating user. Please try again.");
     }
   };
 
@@ -118,7 +119,7 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
                   <Field
                     as={TextField}
                     name="firstName"
-                    label="First Name"
+                    label="Full Name"
                     fullWidth
                     size="small"
                     error={touched.firstName && Boolean(errors.firstName)}

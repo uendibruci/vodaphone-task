@@ -5,6 +5,7 @@ import UserTableHeader from "@/components/Table/UserTableHeader";
 import DeleteUserModal from "@/components/Modals/DeleteUserModal";
 import UpdateUserModal from "../Modals/UpdateUserModal";
 import { deleteUser } from "@/api/usersApi";
+import { toast } from "react-toastify";
 
 const UserTable: React.FC<UserTableProps> = ({ users, fetchUsers }) => {
   const [deletedUserId, setDeletedUserId] = useState<number | null>(null);
@@ -32,7 +33,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, fetchUsers }) => {
       handleCloseModal();
       fetchUsers();
     } catch (error) {
-      console.error("Error deleting user:", error);
+      toast.error("Error deleting user. Please try again.");
     }
   };
 

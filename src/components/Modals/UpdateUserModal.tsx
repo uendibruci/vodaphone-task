@@ -15,6 +15,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { fetchUserById, updateUser } from "@/api/usersApi";
 import { UpdateUserModalProps, User } from "@/interfaces";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
   firstName: Yup.string(),
@@ -53,7 +54,7 @@ const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
       const userDetails = await fetchUserById(userId);
       setUserDetails(userDetails);
     } catch (error) {
-      console.error("Error fetching user details:", error);
+      toast.error("Error fetching user details. Please try again.");
     }
   };
 
@@ -93,7 +94,7 @@ const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
       fetchUsers();
       onClose();
     } catch (error) {
-      console.error("Error updating user:", error);
+      toast.error("Error updating user. Please try again.");
     }
   };
 
@@ -144,7 +145,7 @@ const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
                   <Field
                     as={TextField}
                     name="firstName"
-                    label="First Name"
+                    label="Full Name"
                     fullWidth
                     size="small"
                     error={touched.firstName && Boolean(errors.firstName)}

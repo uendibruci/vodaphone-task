@@ -4,6 +4,7 @@ import { User } from "@/interfaces";
 import UserTable from "@/components/Table/UserTable";
 import CreateUserModal from "@/components/Modals/CreateUserModal";
 import CreateUserButton from "@/components/Buttons/CreateUserButton";
+import { toast } from "react-toastify";
 
 const Home: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
       const fetchedUsers = await fetchUsers();
       setUsers(fetchedUsers);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      toast.error("Error fetching users. Please try again.");
     }
   };
 
@@ -23,11 +24,15 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="container m-5 w-full sm:w-[1220px] max-w-[100vw]">
-      <CreateUserButton
-        setCreateUserModalOpen={() => setCreateUserModalOpen(true)}
-      />
-      <UserTable users={users} fetchUsers={getUsers} />
+    <div className="container mx-auto p-5 sm:w-[1220px]">
+      <div className="flex justify-end mb-4">
+        <CreateUserButton
+          setCreateUserModalOpen={() => setCreateUserModalOpen(true)}
+        />
+      </div>
+      <div className="overflow-x-auto">
+        <UserTable users={users} fetchUsers={getUsers} />
+      </div>
       <CreateUserModal
         open={createUserModalOpen}
         onClose={() => setCreateUserModalOpen(false)}
